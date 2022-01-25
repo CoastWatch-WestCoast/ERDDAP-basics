@@ -13,7 +13,7 @@ The URL is composed of several parts that define the data request. Let's try bre
 Copy the following URL paste it into a browser to see what the data looks like.
 `https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplUKMO_OSTIAv20.largePng?analysed_sst[(2015-07-17T12:00:00Z):(2015-07-17T12:00:00Z)][(45.025):(52.025)][(-128.975):(-121.975)]&.draw=surface&.trim=2&.vars=longitude|latitude|analysed_sst&.colorBar=KT_thermal|||12|20|&.bgColor=0xffccccff`  
 
-**NOTE: If you get an error similar to "Not Found: Currently unknown datasetID=jplUKMO_OSTIAv20.nc", it means that the dataset is temporarily not available. Try using the following URL, which switches to the "nesdisGeoPolarSSTN5SQ" dataset, instead of the one above:**    
+**NOTE: If you get an error similar to "code=404, Not Found: Currently unknown datasetID=jplUKMO_OSTIAv20.nc", it means that the dataset is temporarily not available. Try using the following URL, which switches to the "nesdisGeoPolarSSTN5SQ" dataset, instead of the one above:**    
 `https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisGeoPolarSSTN5SQ.largePng?analysed_sst[(2015-07-17T12:00:00Z):(2015-07-17T12:00:00Z)][(45.025):(52.025)][(-128.975):(-121.975)]&.draw=surface&.trim=2&.vars=longitude|latitude|analysed_sst&.colorBar=KT_thermal|||12|20|&.bgColor=0xffccccff`  
 
 Open simple word processor (not Word) and paste in the URL   

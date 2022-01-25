@@ -1,4 +1,4 @@
-# Automating ERDDAP requests {#erddapurl}
+# Automating ERDDAP requests
 >notebook filename | 04-Erddapurl.Rmd  
 
 Download requests to ERDDAP are completely defined within a URL, allowing:  

@@ -1,4 +1,4 @@
-# Automating ERDDAP requests
+# Automating ERDDAP requests {#erddapurl}
 >notebook filename | 04-Erddapurl.Rmd  
 
 Download requests to ERDDAP are completely defined within a URL, allowing:  
@@ -177,7 +177,12 @@ erddap_url
 
 ```r
 # Download the data as a netCDF file
-download.file(url=erddap_url, destfile="myDataFile.nc", quiet=TRUE)
+
+junk <- GET(erddap_url, write_disk("myDataFile.nc", overwrite=TRUE))  
+
+# The following code will also work for Mac, but not Windows:  
+# download.file(url=erddap_url, destfile="myDataFile.nc", quiet=TRUE)
+
 ```
 
 **Bring the data into R**  

@@ -13,6 +13,9 @@ The URL is composed of several parts that define the data request. Let's try bre
 Copy the following URL paste it into a browser to see what the data looks like.
 `https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplUKMO_OSTIAv20.largePng?analysed_sst[(2015-07-17T12:00:00Z):(2015-07-17T12:00:00Z)][(45.025):(52.025)][(-128.975):(-121.975)]&.draw=surface&.trim=2&.vars=longitude|latitude|analysed_sst&.colorBar=KT_thermal|||12|20|&.bgColor=0xffccccff`  
 
+**NOTE: If you get an error similar to "Not Found: Currently unknown datasetID=jplUKMO_OSTIAv20.nc", it means that the dataset is temporarily not available. Try using the following URL, which switches to the "nesdisGeoPolarSSTN5SQ" dataset, instead of the one above:**    
+`https://coastwatch.pfeg.noaa.gov/erddap/griddap/nesdisGeoPolarSSTN5SQ.largePng?analysed_sst[(2015-07-17T12:00:00Z):(2015-07-17T12:00:00Z)][(45.025):(52.025)][(-128.975):(-121.975)]&.draw=surface&.trim=2&.vars=longitude|latitude|analysed_sst&.colorBar=KT_thermal|||12|20|&.bgColor=0xffccccff`  
+
 Open simple word processor (not Word) and paste in the URL   
 
 Try breaking the URL down into its component parts as described below.  
@@ -20,7 +23,7 @@ Try breaking the URL down into its component parts as described below.
 * Base URL 
     * `https://coastwatch.pfeg.noaa.gov/erddap/griddap/`  
 * dataset ID
-    * `jplUKMO_OSTIAv20`
+    * `jplUKMO_OSTIAv20` (or `nesdisGeoPolarSSTN5SQ` if you changed the URL above)
 * File type
     * `.largePng`
 * Everything after `?` is the data request -> `?`
@@ -82,7 +85,7 @@ You may have to adjust the color bar minimum and maximum a little. If so, find t
 
 * colorBar=KT_thermal|||12|20|
 
-The minimum is set to 12 and maximum is st to 20. Play around with the numbers until your image looks good.
+The minimum is set to 12 and maximum is set to 20. Play around with the numbers until your image looks good.
 
 ## Changing the file type in the URL
 
@@ -137,8 +140,13 @@ myURL <- function(burl, data_id, ftype, data_var, dates, lats, lons) {
 }
 ```
 
-**Create a function in R to build the URL**  
+**Use the function in R to build the URL**  
 Use the function to generate a URL and download the data. The input information for the URL is hard coded below. It is likely that in a script you would write there would be a process to generate the input information.  
+
+**NOTE: If you get an error similar to "Not Found: Currently unknown datasetID=jplUKMO_OSTIAv20.nc", it means that the dataset is temporarily not available. Try the following to get the exercise to work:**      
+* Switch the dataset ID from ID <- "jplUKMO_OSTIAv20" to ID <- "nesdisGeoPolarSSTN5SQ"
+   * Below, put a # in front of ID <- "jplUKMO_OSTIAv20" i.e. # ID <- "jplUKMO_OSTIAv20"
+   * Below, remove the # in front of # ID <- "nesdisGeoPolarSSTN5SQ", i.e. ID <- "nesdisGeoPolarSSTN5SQ"
 
 
 ```r
@@ -146,6 +154,7 @@ Use the function to generate a URL and download the data. The input information 
 baseurl <- "https://coastwatch.pfeg.noaa.gov/erddap/"
 # The id of the dataset
 ID <- "jplUKMO_OSTIAv20"
+# ID <- "nesdisGeoPolarSSTN5SQ"
 # The name of the variable 
 mydata_var <- "analysed_sst"
 # A list containing the beginning and end dates
